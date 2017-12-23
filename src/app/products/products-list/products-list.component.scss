@@ -1,0 +1,19 @@
+.content > a {
+    color: black;
+    font-weight: bolder;
+}
+
+.extra.content > span {
+    color: #2185D1;
+
+}
+
+.description {
+    width: 100%;
+}
+
+.ui.raised.link.card {
+    & > .content {
+        word-break: break-all;
+    }
+}

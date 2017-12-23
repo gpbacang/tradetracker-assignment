@@ -1,0 +1,21 @@
+<div class="ui three cards">
+    <div class="ui raised link card" *ngFor="let product of products; let i = index" (click)="onShowDetails(product)">
+        <div class="image">
+            <img src="{{product.imageURL[0]}}">
+        </div>
+        <div class="content">
+            <a>{{ product.name[0] }}</a>
+            <div class="meta">
+                <span class="product-id">{{ product.productID[0] }}</span>
+            </div>
+        </div>
+        <div class="extra content">
+            <span><strong>{{ product.price[0]._ | currency: product.price[0].$.currency }}</strong></span>
+        </div>
+    </div>
+</div>
+<app-product-details 
+    [product]="selectedProduct" 
+    [showDetails]="showDetails" 
+    (hideDetails)="hideDetails($event)" 
+    *ngIf="selectedProduct"></app-product-details>

@@ -1,0 +1,36 @@
+<div class="page">
+    <div class="filter">
+        <h4 class="ui top attached header grey inverted">Search</h4>
+        <div class="ui attached segment">
+            <form class="ui form" id="urlForm">
+                <div class="field">
+                    <label>URL</label>
+                    <input type="text" name="productUrl" placeholder="Enter URL..." #url>
+                </div>
+                <button class="ui primary button" (click)="onSubmit(url.value)">Submit</button>
+            </form>
+            <div class="ui divider"></div>
+            <form class="ui form" id="filterForm">
+                <div class="field">
+                    <label>Product Search</label>
+                    <select name="product" id="product" class="ui dropdown search fluid">
+                        <option value="">Search Product...</option>
+                        <option *ngFor="let product of products" [value]="product.productID[0]">
+                            <span class="text">{{ product.name[0] }}</span>
+                        </option>
+                    </select>
+                </div>
+                <button class="ui primary button" (click)="onReset();">Reset</button>
+            </form>
+        </div>
+    </div>
+    <div class="products-list">
+        <h4 class="ui top attached header grey inverted">Products</h4>
+        <div class="ui attached segment">
+            <div class="ui large label" *ngIf="!products; else elseBlock">No Results Found.</div>
+            <ng-template #elseBlock>
+                <app-products-list [products]="products"></app-products-list>
+            </ng-template>
+        </div>
+    </div>
+</div>
